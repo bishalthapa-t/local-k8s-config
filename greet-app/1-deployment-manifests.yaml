@@ -28,7 +28,7 @@ spec:
               containerPort: 8080
   strategy:
     canary:
-      maxSurge: 4
+      maxSurge: 2
       maxUnavailable: 1
 
 ---
@@ -45,5 +45,5 @@ spec:
     app.kubernetes.io/name: my-greet-app-service
   ports:
     - name: https
-      port: 7001
+      port: 8080
       targetPort: 8080
