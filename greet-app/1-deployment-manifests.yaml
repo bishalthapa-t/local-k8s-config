@@ -40,7 +40,7 @@ metadata:
   labels:
     app: my-greet-app-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: my-greet-app
   ports:
