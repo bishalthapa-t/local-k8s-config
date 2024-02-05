@@ -1,0 +1,40 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  namespace: localdevelopment
+  name: greetapp-virtual-service
+spec:
+  hosts:
+  - my-greet-app-service.localdevelopment.svc.cluster.local
+  http:
+   - name: "first-call"
+     match:
+       - uri:
+           prefix: /api
+     route:
+       - destination:
+           port:
+             number: 80
+           host: my-greet-app-service.localdevelopment.svc.cluster.local
+           subset: batman
+         weight: 100
+         headers:
+           response:
+             add:
+               "x-version": batman
+
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  namespace: localdevelopment
+  name: greetapp-dr
+spec:
+  host: my-greet-app-service.localdevelopment.svc.cluster.local
+  subsets:
+  - name: batman
+    labels:
+      version: batman
+  - name: robin
+    labels:
+      version: robin

@@ -41,8 +41,6 @@ metadata:
     app: my-greet-app-service
 spec:
   type: ClusterIP
-  selector:
-    app: my-greet-app
   ports:
     - name: https
       port: 7001
