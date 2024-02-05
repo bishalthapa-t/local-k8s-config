@@ -41,6 +41,8 @@ metadata:
     app: my-greet-app-service
 spec:
   type: ClusterIP
+  selector:
+    app.kubernetes.io/name: my-greet-app-service
   ports:
     - name: https
       port: 7001
