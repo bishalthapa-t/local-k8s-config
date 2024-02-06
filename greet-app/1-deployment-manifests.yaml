@@ -40,7 +40,7 @@ metadata:
   labels:
     app: my-greet-app-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app.kubernetes.io/name: my-greet-app-service
   ports:
