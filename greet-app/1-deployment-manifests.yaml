@@ -45,5 +45,5 @@ spec:
     app.kubernetes.io/name: my-greet-app-service
   ports:
     - protocol: TCP
-      port: 8080
+      port: 80
       targetPort: greet-pod-port
