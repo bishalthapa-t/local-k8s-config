@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: my-greet-app
+  name: greetapp-rollout
   namespace: localdevelopment
   labels:
-    app: my-greet-app
+    app: greetapp-rollout
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: my-greet-app
+      app: greetapp-rollout
   template:
     metadata:
       labels:
-        app: my-greet-app
+        app: greetapp-rollout
     spec:
       containers:
         - name: greet-app
@@ -34,14 +34,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-greet-app-service
+  name: greetapp
   namespace: localdevelopment
   labels:
-    app: my-greet-app-service
+    app: greetapp
 spec:
   type: ClusterIP
   selector:
-    app: my-greet-app
+    app: greetapp-rollout
   ports:
     - name: https
       port: 7001
