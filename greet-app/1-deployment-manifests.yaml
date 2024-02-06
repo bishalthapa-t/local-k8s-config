@@ -40,10 +40,9 @@ metadata:
   labels:
     app: my-greet-app-service
 spec:
-  type: ClusterIP
   selector:
     app.kubernetes.io/name: my-greet-app-service
   ports:
-    - name: greet-pod-port
+    - protocol: TCP
       port: 8080
-      targetPort: 8080
+      targetPort: greet-pod-port
