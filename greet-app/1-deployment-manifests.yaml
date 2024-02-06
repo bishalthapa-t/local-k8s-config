@@ -1,4 +1,3 @@
----
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -24,7 +23,7 @@ spec:
             - name: appVersion
               value: v9
           ports:
-            - name: greet-pod-port
+            - name: m-pod-metrics
               containerPort: 8080
   strategy:
     canary:
@@ -40,10 +39,10 @@ metadata:
   labels:
     app: my-greet-app-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
-    app.kubernetes.io/name: my-greet-app-service
+    app: my-greet-app
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: greet-pod-port
+    - name: https
+      port: 7001
+      targetPort: 8080
