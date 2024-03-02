@@ -16,3 +16,17 @@ minikube image ls --format table
 ```
 
 The image build should start with `docker.io/library/${new-image}`
+
+### Install [istio](https://istio.io/latest/docs/setup/getting-started/)
+After installing `istioctl` run the following to instal istion in the minikube cluster
+```
+istioctl install
+```
+
+### - Enable minikube addons
+
+```
+minikube addons enable istio
+minikube addons enable ingress
+minikube addons enable ingress-dns
+``` 
