@@ -7,7 +7,6 @@ metadata:
     app.kubernetes.io/name: bank-integrations
     app: bank-integrations
 spec:
-  replicas: 2
   strategy:
     canary:
       minPodsPerReplicaSet: 2
