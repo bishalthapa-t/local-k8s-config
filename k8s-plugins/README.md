@@ -1,6 +1,6 @@
 ## Order of installation 
 
-#### argo-cd
+#### 1) argo-cd
 
 ```
 kubectl -n argocd apply -f argocd 
@@ -21,12 +21,19 @@ Install [argocd](https://argo-cd.readthedocs.io/en/stable/cli_installation) comm
 brew install argocd
 ```
 
-> To add github repository that is reachable with ssh private key
+Login to argocd in command line
+```
+argopass=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
+argocd login localhost:8080 --insecure --username=admin --password=$argopass
+```
+
+Example to add github repository that is reachable with ssh private key
+> Make sure to login to argcd in command line before executing this commmand
 ```
 argocd repo add git@github.com:bishalthapa-t/local-k8s-config.git --ssh-private-key-path ~/.ssh/id_ed25519
 ```
 
-#### argo-rollout
+#### 2) argo-rollout
 
 ```
 kubectl -n argo-rollout apply -f argo-rollout
