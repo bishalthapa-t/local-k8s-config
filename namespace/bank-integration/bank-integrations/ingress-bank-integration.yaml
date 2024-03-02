@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bankintegration-ingress
+  namespace: bank-integration
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - host: bain-integration.com
+    http:
+      paths:
+      - pathType: Prefix 
+        path: /
+        backend:
+         service:
+           name: bank-integrations
+           port:
+             number: 80
