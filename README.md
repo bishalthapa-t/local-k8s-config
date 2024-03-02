@@ -26,7 +26,20 @@ istioctl install
 ### - Enable minikube addons
 
 ```
-minikube addons enable istio
+istio install
 minikube addons enable ingress
 minikube addons enable ingress-dns
 ``` 
+### - To enable terminal in [web terminal](https://argo-cd.readthedocs.io/en/stable/operator-manual/web_based_terminal/#enabling-the-terminal) in argorollout
+
+Edit configmap `kubectl edit configmap argocd-cm -n argocd` and add 
+```
+data:
+ exec.enabled: "true"
+```
+
+Patch the argocd-server Role `kubectl edit roles.rbac.authorization.k8s.io -n argocd argocd-server`
+```
+  resources:
+  - pods/exec
+```
