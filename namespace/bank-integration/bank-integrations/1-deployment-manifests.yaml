@@ -51,7 +51,7 @@ spec:
       containers:
         - name: bank-integrations
           imagePullPolicy: IfNotPresent
-          image: docker.io/library/bank-integration-local:v1
+          image: bank-integration-local:v1
           ports:
             - containerPort: 8080
               name: http
@@ -69,7 +69,7 @@ spec:
             - name: spring_lifecycle_timeout-per-shutdown-phase
               value: '5m'
             - name: spring_profiles_include
-              value: disabled-bank-integrations, allowed-bank-integrations, bank-properties, market-bucket, proxy-groups
+              value: dev, har_off
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
