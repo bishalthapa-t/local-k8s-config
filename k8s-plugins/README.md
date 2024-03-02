@@ -33,6 +33,8 @@ Example to add github repository that is reachable with ssh private key
 argocd repo add git@github.com:bishalthapa-t/local-k8s-config.git --ssh-private-key-path ~/.ssh/id_ed25519
 ```
 
+> Argocd [doesn't support](https://github.com/argoproj/argo-cd/issues/1894) passpharase private ssh key.  Create new temporary ssh private key and integrate it with github and use it argocd. 
+
 #### 2) argo-rollout
 
 ```
