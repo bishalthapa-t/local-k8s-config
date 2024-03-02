@@ -1,19 +1,14 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
 metadata:
-  name: bankintegration-ingress
-  namespace: bank-integration
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: httpbin-gateway
 spec:
-  rules:
-  - host: bain-integration.com
-    http:
-      paths:
-      - pathType: Prefix 
-        path: /
-        backend:
-         service:
-           name: bank-integrations
-           port:
-             number: 80
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "bain-integration.com"
