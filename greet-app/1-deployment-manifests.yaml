@@ -18,7 +18,7 @@ spec:
       containers:
         - name: greet-app
           resources: {}
-          image: dockerbishalthapa/greet-app@sha256:aeb328d4811575671f16549ca20a1d3cefe356c941569abfb85fc339349d2a7b
+          image: greet-app@sha256:fe91de6203d7f91997cf85003502336929de0621214d20fae37b16a7372add93
           env:
             - name: appVersion
               value: v9

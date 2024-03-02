@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: bank-integrations
+spec:
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: bank-integrations
+  minReplicas: 3
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 50

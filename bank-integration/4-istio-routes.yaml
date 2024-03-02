@@ -1,0 +1,75 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: bank-integrations-destination-rule
+  namespace: bank-integration
+spec:
+  host: bank-integrations
+  subsets:
+    - name: canary
+      labels:
+        app: bank-integrations
+    - name: stable
+      labels:
+        app: bank-integrations
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: bank-integrations-virtual-service
+  namespace: bank-integration
+spec:
+  hosts:
+    - bank-integrations.bank-integration.svc.cluster.local
+  http:
+    - name: stable
+      match:
+        - uri:
+            prefix: /
+          headers:
+            x-version:
+              exact: stable
+      route:
+        - destination:
+            port:
+              number: 80
+            host: bank-integrations
+            subset: stable
+    - name: canary
+      match:
+        - uri:
+            prefix: /
+          headers:
+            x-version:
+              exact: canary
+      route:
+        - destination:
+            port:
+              number: 80
+            host: bank-integrations
+            subset: canary
+    - name: primary
+      route:
+        - destination:
+            host: bank-integrations
+            subset: stable
+          weight: 100
+          headers:
+            request:
+              add:
+                "x-version": stable
+            response:
+              add:
+                "x-version": stable
+        - destination:
+            host: bank-integrations
+            subset: canary
+          weight: 0
+          headers:
+            request:
+              add:
+                "x-version": canary
+            response:
+              add:
+                "x-version": canary
