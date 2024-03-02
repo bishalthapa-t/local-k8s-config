@@ -16,18 +16,15 @@ Command to reterieve argocd password:
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-> Install [rgocd command]https://argo-cd.readthedocs.io/en/stable/cli_installation/)
+Install [argocd](https://argo-cd.readthedocs.io/en/stable/cli_installation) command
 ```
 brew install argocd
 ```
-
 
 > To add github repository that is reachable with ssh private key
 ```
 argocd repo add git@github.com:bishalthapa-t/local-k8s-config.git --ssh-private-key-path ~/.ssh/id_ed25519
 ```
-
-
 
 #### argo-rollout
 
