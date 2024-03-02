@@ -3,6 +3,7 @@
 #### 1) argo-cd
 
 ```
+kubectl create namsepace argocd
 kubectl -n argocd apply -f argocd 
 ```
 
@@ -35,9 +36,9 @@ argocd repo add git@github.com:bishalthapa-t/local-k8s-config.git --ssh-private-
 > Argocd [doesn't support](https://github.com/argoproj/argo-cd/issues/1894) passpharase private ssh key.  Create new temporary ssh private key and integrate it with github and use it argocd. To verify if argocd can connect to private github repo run the command `argocd repo list`.
 
 
-#### 2) argo-rollout
+#### 2) [argo-rollout](https://argoproj.github.io/argo-rollouts/installation/)
 
 ```
-kubectl -n argo-rollout apply -f argo-rollout
+kubectl create namsepace argo-rollouts
+kubectl apply -n argo-rollouts -f argo-rollouts
 ```
-
