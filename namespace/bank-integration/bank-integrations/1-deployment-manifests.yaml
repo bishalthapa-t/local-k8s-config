@@ -51,7 +51,7 @@ spec:
       containers:
         - name: bank-integrations
           imagePullPolicy: Always
-          image: docker.io/library/bank-integration-local:v1.0.0
+          image: bank-integration-local@sha256:026b692e762dde4287cc650bac2a4b1645b2a69791faa77ae8d41e6415016312
           ports:
             - containerPort: 8080
               name: http
