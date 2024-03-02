@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: greetapp-rollout
-  namespace: localdevelopment
+  namespace: testing
   labels:
     app: greetapp-rollout
 spec:
@@ -35,7 +35,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: greetapp
-  namespace: localdevelopment
+  namespace: testing
   labels:
     app: greetapp
 spec:
