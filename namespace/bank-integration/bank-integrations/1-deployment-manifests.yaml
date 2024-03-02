@@ -50,8 +50,8 @@ spec:
       terminationGracePeriodSeconds: 300
       containers:
         - name: bank-integrations
-          imagePullPolicy: Always
-          image: bank-integration-local@sha256:4b0d7ecd8591909a989fa12f881739ea22c87cd829b7f8c87761e4990df5b369
+          imagePullPolicy: IfNotPresent
+          image: docker.io/library/bank-integration-local:v1
           ports:
             - containerPort: 8080
               name: http
