@@ -1,4 +1,11 @@
 apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: istio
+spec:
+  controller: istio.io/ingress-controller
+---
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: bankintegration-ingress
@@ -6,6 +13,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: istio
 spec:
+  ingressClassName: istio
   rules:
     - host: bain-integration.com
       http:
