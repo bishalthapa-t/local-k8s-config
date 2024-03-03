@@ -21,9 +21,7 @@ metadata:
   namespace: bank-integration
 spec:
   hosts:
-    - bain-integration.com
-  gateways:
-    - httpbin-gateway
+    - bank-integrations.bank-integration.svc.cluster.local
   http:
     - name: stable
       match:
