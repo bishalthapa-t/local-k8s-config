@@ -11,7 +11,18 @@ spec:
         number: 80
         name: http
         protocol: HTTP
+      tls:
+        httpsRedirect: true
       hosts:
         - "*"
         - "*.bain-integration.com"
         - "bain-integration.com"
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-all
+  namespace: istio-system
+spec:
+  rules:
+    - {}

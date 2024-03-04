@@ -6,3 +6,17 @@ metadata:
 spec:
   rules:
     - {}
+
+---
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: "workload-policy"
+  namespace: bank-integration
+spec:
+  selector:
+    matchLabels:
+      app: bank-integrations
+  portLevelMtls:
+    80:
+      mode: DISABLE
