@@ -11,9 +11,9 @@ spec:
   http:
     - route:
         - destination:
-            host: bank-integration.bank-integrations.svc.cluster.local
+            host: bank-integrations.bank-integration.svc.cluster.local
             port:
-              number: 80
+              number: 8080
 
 
 ##apiVersion: networking.istio.io/v1alpha3
