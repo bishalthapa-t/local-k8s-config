@@ -15,3 +15,12 @@ spec:
         - "*"
         - "*.bain-integration.com"
         - "bain-integration.com"
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-all
+  namespace: bank-integration
+spec:
+  rules:
+    - {}
