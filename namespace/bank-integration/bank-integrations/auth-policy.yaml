@@ -6,8 +6,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: istio-ingressgateway
-      istio: ingressgateway
+      app:  bank-integrations
   action: ALLOW
   rules:
     - to:

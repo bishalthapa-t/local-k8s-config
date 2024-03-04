@@ -16,3 +16,17 @@ spec:
       hosts:
         - "*"
         - "bain-integration.com"
+---
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: auth-policy
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+      istio: ingressgateway
+  action: ALLOW
+  rules:
+    - { }
