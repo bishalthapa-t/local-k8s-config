@@ -5,9 +5,6 @@ metadata:
   namespace: bank-integration
 spec:
   host: bank-integrations
-  trafficPolicy:
-    tls:
-      mode: ISTIO_MUTUAL
   subsets:
     - name: canary
       labels:
