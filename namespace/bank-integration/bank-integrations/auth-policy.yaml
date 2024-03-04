@@ -11,7 +11,7 @@ spec:
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
 metadata:
-  name: "workload-policy"
+  name: "peer-policy"
   namespace: bank-integration
 spec:
   selector:
@@ -20,3 +20,19 @@ spec:
   portLevelMtls:
     80:
       mode: DISABLE
+
+---
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: auth-policy
+  namespace: bank-integration
+spec:
+  selector:
+    matchLabels:
+      app: bank-integrations
+  action: ALLOW
+  rules:
+    - to:
+        - operation:
+            methods: ["GET", "HEAD", "POST", "PUT"]
