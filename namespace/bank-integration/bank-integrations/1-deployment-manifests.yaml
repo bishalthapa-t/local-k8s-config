@@ -50,7 +50,7 @@ spec:
       containers:
         - name: bank-integrations
           imagePullPolicy: IfNotPresent
-          image: localhost:5000/bank-integration-local:v1.0.0
+          image: bank-integration-local:v2
           ports:
             - containerPort: 8080
               name: http
