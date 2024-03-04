@@ -7,13 +7,9 @@ spec:
   host: bank-integrations
   subsets:
     - name: canary
-      port:
-        number: 80
       labels:
         app: bank-integrations
     - name: stable
-      port:
-        number: 80
       labels:
         app: bank-integrations
 
@@ -58,6 +54,8 @@ spec:
     - name: primary
       route:
         - destination:
+            port:
+              number: 80
             host: bank-integrations
             subset: stable
           weight: 100
@@ -66,6 +64,8 @@ spec:
               add:
                 "x-version": stable
         - destination:
+            port:
+              number: 80
             host: bank-integrations
             subset: canary
           weight: 0

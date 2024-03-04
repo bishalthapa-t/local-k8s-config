@@ -15,7 +15,6 @@ spec:
     - port: 9101
       targetPort: 9101
       protocol: TCP
-      name: metrics
   selector:
     app.kubernetes.io/name: bank-integrations
     app: bank-integrations
