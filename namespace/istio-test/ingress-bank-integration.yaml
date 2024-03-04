@@ -3,13 +3,16 @@ kind: Gateway
 metadata:
   name: bank-integration-gw
   namespace: istio-test
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   selector:
     istio: ingressgateway
+    app: istio-ingressgateway
   servers:
     - port:
         number: 80
         name: http
         protocol: HTTP
       hosts:
-        - "bain-integration.com"
+        - bain-integration.com
