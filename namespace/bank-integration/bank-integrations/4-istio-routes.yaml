@@ -11,7 +11,7 @@ spec:
   http:
     - route:
         - destination:
-            host: bank-integrations.bank-integration
+            host: bank-integration.bank-integrations.svc.cluster.local
             port:
               number: 80
 
