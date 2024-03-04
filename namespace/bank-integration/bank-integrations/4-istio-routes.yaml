@@ -53,6 +53,9 @@ spec:
 #            host: bank-integrations
 #            subset: canary
     - name: primary
+      match:
+        - uri:
+            prefix: /
       route:
         - destination:
             port:
