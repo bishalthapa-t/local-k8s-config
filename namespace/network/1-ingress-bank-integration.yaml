@@ -2,15 +2,14 @@ apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: bank-integration-gw
-  namespace: istio-test
+  namespace: bank-integration
 spec:
   selector:
     istio: ingressgateway
-    app: istio-ingressgateway
   servers:
     - port:
-        number: 8080
+        number: 80
         name: http
         protocol: HTTP
       hosts:
-        - bain-integration.com
+        - "*"
