@@ -1,8 +1,8 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: httpbin-gateway
-  namespace: bank-integration
+  name: bank-integration-gw
+  namespace: istio-public
 spec:
   selector:
     istio: ingressgateway

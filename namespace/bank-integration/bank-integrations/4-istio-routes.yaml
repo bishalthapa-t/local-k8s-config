@@ -23,7 +23,7 @@ spec:
   hosts:
     - bain-integration.com
   gateways:
-    - httpbin-gateway
+    - istio-public/bank-integration-gw
   http:
     - name: stable
       match:
