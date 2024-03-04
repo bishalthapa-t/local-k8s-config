@@ -67,13 +67,3 @@ spec:
             response:
               add:
                 "x-version": stable
-        - destination:
-            port:
-              number: 80
-            host: bank-integrations
-            subset: canary
-          weight: 0
-          headers:
-            response:
-              add:
-                "x-version": canary
