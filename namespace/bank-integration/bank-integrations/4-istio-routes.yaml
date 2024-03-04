@@ -57,6 +57,7 @@ spec:
         - destination:
             port:
               number: 80
+            host: bank-integrations
             subset: stable
           weight: 100
           headers:
@@ -66,6 +67,7 @@ spec:
         - destination:
             port:
               number: 80
+            host: bank-integrations
             subset: canary
           weight: 0
           headers:
