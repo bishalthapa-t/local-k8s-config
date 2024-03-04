@@ -3,7 +3,7 @@
 #### 1) argo-cd
 
 ```
-kubectl create namsepace argocd
+kubectl create namespace argocd
 kubectl -n argocd apply -f argocd 
 ```
 
@@ -39,6 +39,6 @@ argocd repo add git@github.com:bishalthapa-t/local-k8s-config.git --ssh-private-
 #### 2) [argo-rollout](https://argoproj.github.io/argo-rollouts/installation/)
 
 ```
-kubectl create namsepace argo-rollouts
+kubectl create namespace argo-rollouts
 kubectl apply -n argo-rollouts -f argo-rollouts
 ```
