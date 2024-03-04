@@ -23,6 +23,9 @@ spec:
       app: bank-integrations
   action: ALLOW
   rules:
+    - from:
+      - source:
+          principals: ["*"]
     - to:
         - operation:
             methods: ["GET", "HEAD", "POST", "PUT"]
