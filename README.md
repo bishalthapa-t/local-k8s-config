@@ -23,12 +23,6 @@ After installing `istioctl` run the following to instal istion in the minikube c
 istioctl install
 ```
 
-### - Enable minikube addons
-
-```
-istio install
-minikube addons enable ingress
-minikube addons enable ingress-dns
 ``` 
 ### - To enable terminal in [web terminal](https://argo-cd.readthedocs.io/en/stable/operator-manual/web_based_terminal/#enabling-the-terminal) in argorollout
 
