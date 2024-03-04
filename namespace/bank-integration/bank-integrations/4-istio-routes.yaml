@@ -21,7 +21,7 @@ metadata:
   namespace: bank-integration
 spec:
   hosts:
-    - "bain-integration.com"
+    - "*"
   gateways:
     - bank-integration-gw
   http:
