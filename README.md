@@ -23,7 +23,7 @@ After installing `istioctl` run the following to instal istion in the minikube c
 istioctl install
 ```
 
-``` 
+
 ### - To enable terminal in [web terminal](https://argo-cd.readthedocs.io/en/stable/operator-manual/web_based_terminal/#enabling-the-terminal) in argorollout
 
 Edit configmap `kubectl edit configmap argocd-cm -n argocd` and add 
@@ -37,3 +37,7 @@ Patch the argocd-server Role `kubectl edit roles.rbac.authorization.k8s.io -n ar
   resources:
   - pods/exec
 ```
+
+### For DNS routing use `nginx` in the host and `/etc/hosts` (MacOS)
+Example: [Mapping Hostnames with Ports](https://www.baeldung.com/linux/mapping-hostnames-ports)
+
