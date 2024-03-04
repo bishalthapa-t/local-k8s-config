@@ -23,7 +23,6 @@ spec:
   hosts:
     - bank-integrations.bank-integration.svc.cluster.local
     - "bain-integration.com"
-    - "*"
   gateways:
     - istio-system/bank-integration-gw
     - mesh

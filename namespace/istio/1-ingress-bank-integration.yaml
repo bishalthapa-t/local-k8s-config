@@ -12,5 +12,6 @@ spec:
         name: http
         protocol: HTTP
       hosts:
+        - "*"
         - "*.bain-integration.com"
         - "bain-integration.com"
