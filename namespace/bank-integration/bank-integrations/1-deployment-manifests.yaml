@@ -9,21 +9,21 @@ metadata:
 spec:
   strategy:
     canary:
-#      minPodsPerReplicaSet: 2
-#      scaleDownDelaySeconds: 300
-#      scaleDownDelayRevisionLimit: 2
-#      trafficRouting:
-#        istio:
-#          virtualService:
-#            name: bank-integrations-virtual-service
-#            tcpRoutes:
-#              - port: 80
-#            routes:
-#              - primary
-#          destinationRule:
-#            name: bank-integrations-destination-rule
-#            canarySubsetName: canary
-#            stableSubsetName: stable
+      minPodsPerReplicaSet: 2
+      scaleDownDelaySeconds: 300
+      scaleDownDelayRevisionLimit: 2
+      trafficRouting:
+        istio:
+          virtualService:
+            name: bank-integrations-virtual-service
+            tcpRoutes:
+              - port: 80
+            routes:
+              - primary
+          destinationRule:
+            name: bank-integrations-destination-rule
+            canarySubsetName: canary
+            stableSubsetName: stable
       maxSurge: 2
       maxUnavailable: 1
       steps:
