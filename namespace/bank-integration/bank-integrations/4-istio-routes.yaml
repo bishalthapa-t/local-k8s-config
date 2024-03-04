@@ -26,32 +26,32 @@ spec:
     - istio-system/bank-integration-gw
     - mesh
   http:
-#    - name: stable
-#      match:
-#        - uri:
-#            prefix: /
-#          headers:
-#            x-version:
-#              exact: stable
-#      route:
-#        - destination:
-#            port:
-#              number: 80
-#            host: bank-integrations
-#            subset: stable
-#    - name: canary
-#      match:
-#        - uri:
-#            prefix: /
-#          headers:
-#            x-version:
-#              exact: canary
-#      route:
-#        - destination:
-#            port:
-#              number: 80
-#            host: bank-integrations
-#            subset: canary
+    - name: stable
+      match:
+        - uri:
+            prefix: /
+          headers:
+            x-version:
+              exact: stable
+      route:
+        - destination:
+            port:
+              number: 80
+            host: bank-integrations
+            subset: stable
+    - name: canary
+      match:
+        - uri:
+            prefix: /
+          headers:
+            x-version:
+              exact: canary
+      route:
+        - destination:
+            port:
+              number: 80
+            host: bank-integrations
+            subset: canary
     - name: primary
       match:
         - uri:
@@ -67,3 +67,13 @@ spec:
             response:
               add:
                 "x-version": stable
+        - destination:
+            port:
+              number: 80
+            host: bank-integrations
+            subset: canary
+          weight: 0
+          headers:
+            response:
+              add:
+                "x-version": canary
