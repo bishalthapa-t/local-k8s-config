@@ -21,9 +21,9 @@ metadata:
   namespace: bank-integration
 spec:
   hosts:
-    - "*"
+    - "bain-integration.com"
   gateways:
-    - bank-integration-gw
+    - istio-system/bank-integration-gw
   http:
     - name: stable
       match:
