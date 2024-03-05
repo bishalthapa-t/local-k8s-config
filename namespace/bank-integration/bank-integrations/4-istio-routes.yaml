@@ -22,7 +22,6 @@ metadata:
 spec:
   hosts:
     - bank-integrations.bank-integration.svc.cluster.local
-    - "*"
   gateways:
     - istio-system/bank-integration-gw
     - mesh
