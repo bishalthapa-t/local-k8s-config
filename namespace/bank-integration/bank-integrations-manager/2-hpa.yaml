@@ -8,6 +8,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: bank-integrations-manager
-  minReplicas: 2
-  maxReplicas: 4
+  minReplicas: 1
+  maxReplicas: 1
   targetCPUUtilizationPercentage: 50
