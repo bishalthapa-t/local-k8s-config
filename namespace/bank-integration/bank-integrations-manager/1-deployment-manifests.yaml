@@ -7,9 +7,6 @@ metadata:
     app.kubernetes.io/name: bank-integrations-manager
     app: bank-integrations-manager
 spec:
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: bank-integrations-manager
   template:
     metadata:
       labels:
@@ -78,3 +75,4 @@ spec:
             failureThreshold: 60
             periodSeconds: 15
             timeoutSeconds: 5
+  selector:
