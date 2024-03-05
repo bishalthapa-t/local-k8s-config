@@ -28,7 +28,7 @@ spec:
       containers:
         - name: bank-integrations-manager
           imagePullPolicy: IfNotPresent
-          image: bim-local:v1.0.6
+          image: bim-local:v1.0.5
           ports:
             - containerPort: 8080
               name: http
@@ -45,6 +45,8 @@ spec:
               value: '300000'
             - name: spring_lifecycle_timeout-per-shutdown-phase
               value: '5m'
+            - name: logging_level_com_trustly_bankintegrationsmanager
+              value: "DEBUG"
             - name: integration-selector_get-integration-url
               value: "http://host.minikube.internal:8282/selector/v1/integration"
             - name: bank-integrations_defaultHost
