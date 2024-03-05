@@ -48,9 +48,9 @@ spec:
             - name: integration-selector_get-integration-url
               value: "http://host.minikube.internal:8282/selector/v1/integration"
             - name: bank-integrations_defaultHost
-              value: "bank-integrations.bank-integration.svc.cluster.local"
+              value: "http://bank-integrations.bank-integration/command"
             - name: bank-integrations_devDispatcherHost
-              value: "bank-integrations.bank-integration.svc.cluster.local"
+              value: "http://bank-integrations.bank-integration/command"
             - name: redis_host
               value: "host.minikube.internal"
             - name: management.server.port
