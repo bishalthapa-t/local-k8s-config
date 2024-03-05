@@ -29,6 +29,8 @@ spec:
       steps:
         - setWeight: 50
         - pause: { duration: 3m }
+        - setWeight: 100
+        - pause: { }
   selector:
     matchLabels:
       app.kubernetes.io/name: bank-integrations
