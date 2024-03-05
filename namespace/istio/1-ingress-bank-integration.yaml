@@ -15,7 +15,7 @@ spec:
       tls:
         httpsRedirect: false
       hosts:
-        - ".*"
+        - "*"
         - "bain-integration.com"
 ---
 apiVersion: security.istio.io/v1
