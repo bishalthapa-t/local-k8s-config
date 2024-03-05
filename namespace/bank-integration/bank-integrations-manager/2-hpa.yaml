@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: bank-integrations-manager
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bank-integrations-manager
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 50
