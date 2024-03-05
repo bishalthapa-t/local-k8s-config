@@ -53,6 +53,10 @@ spec:
               value: "bank-integrations.bank-integration.svc.cluster.local"
             - name: redis_host
               value: "host.minikube.internal"
+            - name: management.server.port
+              value: '9101'
+            - name: server.port
+              value: '8080'
             - name: spring_profiles_include
               value: dev, kafka_off
           livenessProbe:
