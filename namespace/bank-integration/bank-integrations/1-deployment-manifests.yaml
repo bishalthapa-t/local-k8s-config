@@ -10,7 +10,6 @@ spec:
   strategy:
     canary:
       minPodsPerReplicaSet: 2
-      scaleDownDelaySeconds: 300
       scaleDownDelayRevisionLimit: 2
       trafficRouting:
         istio:
