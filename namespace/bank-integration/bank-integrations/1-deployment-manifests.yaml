@@ -30,7 +30,7 @@ spec:
         - setWeight: 50
         - pause: { duration: 3m }
         - setWeight: 100
-        - pause: { }
+        - pause: { } # Pauses indefinitely until manually resumed
   selector:
     matchLabels:
       app.kubernetes.io/name: bank-integrations
@@ -52,7 +52,7 @@ spec:
       containers:
         - name: bank-integrations
           imagePullPolicy: IfNotPresent
-          image: bank-integration-local:v1.0.2
+          image: bank-integration-local:v1.0.1
           ports:
             - containerPort: 8080
               name: http
