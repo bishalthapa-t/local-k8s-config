@@ -40,6 +40,10 @@ spec:
               number: 80
             host: bank-integrations
             subset: stable
+            headers:
+              response:
+                add:
+                  "x-version": stable
     - name: canary
       match:
         - uri:
@@ -53,6 +57,10 @@ spec:
               number: 80
             host: bank-integrations
             subset: canary
+            headers:
+              response:
+                add:
+                  "x-version": canary
     - name: primary
       match:
         - uri:
