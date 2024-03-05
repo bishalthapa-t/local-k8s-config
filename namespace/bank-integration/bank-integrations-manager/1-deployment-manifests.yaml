@@ -7,6 +7,9 @@ metadata:
     app.kubernetes.io/name: bank-integrations-manager
     app: bank-integrations-manager
 spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: bank-integrations-manager
   template:
     metadata:
       labels:
@@ -21,7 +24,7 @@ spec:
       securityContext:
         runAsUser: 1000
         runAsGroup: 2000
-      terminationGracePeriodSeconds: 301
+      terminationGracePeriodSeconds: 300
       containers:
         - name: bank-integrations-manager
           imagePullPolicy: IfNotPresent
@@ -42,14 +45,6 @@ spec:
               value: '300000'
             - name: spring_lifecycle_timeout-per-shutdown-phase
               value: '5m'
-            - name: integration-selector_get-integration-url
-              value: "http://host.minikube.internal:8282/selector/v1/integration"
-            - name: bank-integrations_defaultHost
-              value: "bank-integrations.bank-integration.svc.cluster.local"
-            - name: bank-integrations_devDispatcherHost
-              value: "bank-integrations.bank-integration.svc.cluster.local"
-            - name: redis_host
-              value: "host.minikube.internal"
             - name: spring_profiles_include
               value: dev, kafka_off
           livenessProbe:
@@ -75,4 +70,3 @@ spec:
             failureThreshold: 60
             periodSeconds: 15
             timeoutSeconds: 5
-  selector:
