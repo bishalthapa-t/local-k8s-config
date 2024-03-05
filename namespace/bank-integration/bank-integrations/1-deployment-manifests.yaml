@@ -30,7 +30,7 @@ spec:
         - setWeight: 50
         - pause: { duration: 3m }
         - setWeight: 100
-        - pause: { duration:30m }
+        - pause: { duration: 30m }
   selector:
     matchLabels:
       app.kubernetes.io/name: bank-integrations
@@ -48,7 +48,7 @@ spec:
       securityContext:
         runAsUser: 1000
         runAsGroup: 2000
-      terminationGracePeriodSeconds: 300
+      terminationGracePeriodSeconds: 120
       containers:
         - name: bank-integrations
           imagePullPolicy: IfNotPresent
