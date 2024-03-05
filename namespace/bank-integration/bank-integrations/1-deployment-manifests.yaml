@@ -29,7 +29,7 @@ spec:
         - setWeight: 50
         - pause: { duration: 3m }
         - setWeight: 100
-        - pause: { } # Pauses indefinitely until manually resumed
+        - pause: { duration:30m }
   selector:
     matchLabels:
       app.kubernetes.io/name: bank-integrations
