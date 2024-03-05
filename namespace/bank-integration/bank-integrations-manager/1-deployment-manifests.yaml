@@ -28,7 +28,7 @@ spec:
       containers:
         - name: bank-integrations-manager
           imagePullPolicy: IfNotPresent
-          image: bim-local:v1.0.8
+          image: bim-local:v1.0.9
           ports:
             - containerPort: 8080
               name: http
