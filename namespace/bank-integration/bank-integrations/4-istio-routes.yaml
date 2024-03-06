@@ -32,7 +32,7 @@ spec:
         - uri:
             prefix: /
           headers:
-            x-version:
+            bain-version:
               exact: stable
       route:
         - destination:
@@ -43,13 +43,13 @@ spec:
           headers:
             response:
               add:
-                "x-version": stable
+                "bain-version": stable
     - name: canary
       match:
         - uri:
             prefix: /
           headers:
-            x-version:
+            bain-version:
               exact: canary
       route:
         - destination:
@@ -60,7 +60,7 @@ spec:
           headers:
             response:
               add:
-                "x-version": canary
+                "bain-version": canary
     - name: primary
       match:
         - uri:
@@ -75,7 +75,7 @@ spec:
           headers:
             response:
               add:
-                "x-version": stable
+                "bain-version": stable
         - destination:
             port:
               number: 80
@@ -85,4 +85,4 @@ spec:
           headers:
             response:
               add:
-                "x-version": canary
+                "bain-version": canary
