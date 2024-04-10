@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bain-api-proxy
+  labels:
+    app.kubernetes.io/name: bain-api-proxy
+    app: bain-api-proxy
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      name: http
+    - port: 9101
+      targetPort: 9101
+      protocol: TCP
+      name: metrics
+  selector:
+    app.kubernetes.io/name: bain-api-proxy
+    app: bain-api-proxy
