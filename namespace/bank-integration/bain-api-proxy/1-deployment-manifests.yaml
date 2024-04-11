@@ -41,8 +41,8 @@ spec:
               path: /health
               port: 8080
               scheme: HTTP
-            periodSeconds: 10
-            timeoutSeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 30
             failureThreshold: 6
           readinessProbe:
             httpGet:
