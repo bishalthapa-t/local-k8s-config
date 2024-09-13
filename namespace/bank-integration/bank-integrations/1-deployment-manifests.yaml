@@ -68,7 +68,7 @@ spec:
             - name: application_shutdown-delay-millis
               value: '300000'
             - name: spring_lifecycle_timeout-per-shutdown-phase
-              value: '5m'
+              value: '4m'
             - name: spring_profiles_include
               value: dev, har_off
           livenessProbe:
