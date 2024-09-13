@@ -71,6 +71,8 @@ spec:
               value: '5m'
             - name: spring_profiles_include
               value: dev, har_off
+            - name: redis_host
+              value: '192.168.65.0'
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
