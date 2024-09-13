@@ -1,4 +1,3 @@
-# Redis Insight service with name 'redisinsight-service'
 apiVersion: v1
 kind: Service
 metadata:
