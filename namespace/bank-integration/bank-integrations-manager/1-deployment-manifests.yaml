@@ -54,7 +54,7 @@ spec:
             - name: bank-integrations_devDispatcherHost
               value: "http://bank-integrations.bank-integration/command"
             - name: redis_host
-              value: "bank-integrations.redis"
+              value: "redis.bank-integration"
             - name: management.server.port
               value: '9101'
             - name: server.port
