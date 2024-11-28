@@ -31,7 +31,7 @@ spec:
       containers:
         - name: bain-api-proxy
           imagePullPolicy: IfNotPresent
-          image: nginx-preview-proxy:local
+          image: bain-preview-proxy:local
           ports:
             - containerPort: 8080
               name: http
