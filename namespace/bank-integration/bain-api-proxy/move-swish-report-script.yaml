@@ -8,7 +8,7 @@ data:
     
     # Fetch the response from the API
     northmill_accounts=$(curl -v "$SWIH_REPORT_ENDPOINT")
-    if [ -z "$response" ]; then
+    if [ -z "$northmill_accounts" ]; then
       echo "Failed to fetch API response. Exiting." >&2
       exit 1
     fi
