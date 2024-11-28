@@ -48,13 +48,13 @@ spec:
             - name: logging_level_com_trustly_bankintegrationsmanager
               value: "DEBUG"
             - name: integration-selector_get-integration-url
-              value: "http://192.168.49.2:8282/selector/v1/integration"# This host might need be change. run-> 'minikube ssh' then run->'cat /etc/hosts' to find correct host
+              value: "http://192.168.5.2:8282/selector/v1/integration"# This host might need be change. run-> 'minikube ssh' then run->'cat /etc/hosts' to find correct host
             - name: bank-integrations_defaultHost
               value: "http://bank-integrations.bank-integration/command"
             - name: bank-integrations_devDispatcherHost
               value: "http://bank-integrations.bank-integration/command"
             - name: redis_host
-              value: "192.168.49.2" # This host might need be change. run-> 'minikube ssh' then run->'cat /etc/hosts' to find correct host
+              value: "192.168.5.2" # This host might need be change. run-> 'minikube ssh' then run->'cat /etc/hosts' to find correct host
             - name: management.server.port
               value: '9101'
             - name: server.port
