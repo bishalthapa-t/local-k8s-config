@@ -7,7 +7,7 @@ data:
   process_s3_report.sh: |
     
     # Fetch the response from the API
-    response=$(curl -v "SWIH_REPORT_ENDPOINT")
+    response=$(curl -v "$SWIH_REPORT_ENDPOINT")
     if [ -z "$response" ]; then
       echo "Failed to fetch API response. Exiting." >&2
       exit 1
