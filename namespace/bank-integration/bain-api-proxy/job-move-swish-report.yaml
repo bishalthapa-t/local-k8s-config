@@ -16,6 +16,9 @@ spec:
               image: public.ecr.aws/aws-cli/aws-cli:2.22.4
               imagePullPolicy: IfNotPresent
               command: [ "/bin/bash", "/scripts/process_s3_report.sh" ]
+              env:
+                - name: SWIH_REPORT_ENDPOINT
+                  value: "https://7cef0581-c24d-4b3a-a103-6fe0c59bfbe6.mock.pstmn.io/api/v1/processing-account"
               volumeMounts:
                 - name: move-swish-report-script
                   mountPath: /scripts

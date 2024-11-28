@@ -5,11 +5,9 @@ metadata:
   namespace: bank-integration
 data:
   process_s3_report.sh: |
-    ENDPOINT="http://swish-report.product/report/api/v1/processing-accounts?partnerBank=Northmill"
-    
     
     # Fetch the response from the API
-    response=$(curl -s "$ENDPOINT")
+    response=$(curl -s "SWIH_REPORT_ENDPOINT")
     if [ -z "$response" ]; then
       echo "Failed to fetch API response. Exiting." >&2
       exit 1
