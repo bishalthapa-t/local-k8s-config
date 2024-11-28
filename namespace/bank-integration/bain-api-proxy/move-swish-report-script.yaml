@@ -7,16 +7,9 @@ data:
   process_s3_report.sh: |
     
     # Fetch the response from the API
-    response=$(curl -v "$SWIH_REPORT_ENDPOINT")
+    northmill_accounts=$(curl -v "$SWIH_REPORT_ENDPOINT")
     if [ -z "$response" ]; then
       echo "Failed to fetch API response. Exiting." >&2
-      exit 1
-    fi
-    
-    # Filter processing accounts with partnerBank = "Northmill"
-    northmill_accounts=$(echo "$response" | jq -c '.[] | select(.partnerBank == "Northmill")')
-    if [ -z "$northmill_accounts" ]; then
-      echo "No accounts with partnerBank 'Northmill' found. Exiting." >&2
       exit 1
     fi
     
