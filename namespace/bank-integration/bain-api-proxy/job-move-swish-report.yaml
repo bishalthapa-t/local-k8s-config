@@ -17,8 +17,14 @@ spec:
               imagePullPolicy: IfNotPresent
               command: [ "/bin/bash", "/scripts/process_s3_report.sh" ]
               env:
-                - name: SWIH_REPORT_ENDPOINT
-                  value: "https://7cef0581-c24d-4b3a-a103-6fe0c59bfbe6.mock.pstmn.io/api/v1/processing-account"
+                - name: SWISH_REPORT_PA_ENDPOINT
+                  value: "http://swish-report.product/report/api/v1/processing-accounts?partnerBank=Northmill"
+                - name: S3_BANK_INTEGRATION_BUCKET
+                  value: "trustly-490093413857-eu-west-1-sftp-bank-integration/northmill"
+                - name: S3_REPORTS_BUCKET
+                  value: "s3://trustly-490093413857-eu-west-1-sftp-swish-reports"
+                - name: S3_ARCHIVE_BUCKET
+                  value: "s3://trustly-490093413857-eu-west-1-sftp-swish-reports/swish-archive"
               volumeMounts:
                 - name: move-swish-report-script
                   mountPath: /scripts

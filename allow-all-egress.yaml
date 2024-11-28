@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: allow-all-egress
+spec:
+  hosts:
+  - "https://7cef0581-c24d-4b3a-a103-6fe0c59bfbe6.mock.pstmn.io"
+  location: MESH_EXTERNAL
+  ports:
+  - number: 80
+    name: http
+    protocol: HTTP
+  - number: 443
+    name: https
+    protocol: HTTPS
+  resolution: DNS
