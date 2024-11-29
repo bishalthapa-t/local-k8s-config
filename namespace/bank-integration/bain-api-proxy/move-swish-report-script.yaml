@@ -6,23 +6,18 @@ metadata:
 data:
   process_s3_report.sh: |
     set -e
-    
     ENDPOINT="http://swish-report.product/report/api/v1/processing-accounts?partnerBank=Northmill"
-    
-    
     # Fetch the response from the API
     response=$(curl -s "$ENDPOINT")
     if [ -z "$response" ]; then
       echo "Failed to fetch API response. Exiting." >&2
       exit 1
     fi
-    
     # Filter processing accounts with partnerBank = "Northmill"
     northmill_accounts=$(echo "$response" | jq -c '.[] | select(.partnerBank == "Northmill")')
     if [ -z "$northmill_accounts" ]; then
       echo "No accounts with partnerBank 'Northmill' found. Exiting." >&2
       exit 1
     fi
-    
     echo $northmill_accounts
     exit 1;
