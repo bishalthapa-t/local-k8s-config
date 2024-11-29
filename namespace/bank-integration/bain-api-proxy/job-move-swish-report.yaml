@@ -32,4 +32,4 @@ spec:
             - name: move-swish-report-script
               configMap:
                 name: process-s3-script
-      backoffLimit: 1
+      backoffLimit: 2
