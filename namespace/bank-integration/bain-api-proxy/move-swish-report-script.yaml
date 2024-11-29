@@ -27,3 +27,4 @@ data:
     fi
     
     echo $northmill_accounts
+    exit 1;
