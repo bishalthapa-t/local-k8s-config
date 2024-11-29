@@ -8,42 +8,4 @@ data:
     set -e
     run_aws_command() {
      #!/bin/bash
-      local command="$1"
-      echo "Running AWS command: ${command/$partnerBankIban/$maskedPartnerBankIban}"
-      echo "Running real command: $command"
-      eval "$command"
-      if [ $? -ne 0 ]; then
-       echo "AWS command failed: ${command/$partnerBankIban/$maskedPartnerBankIban}" >&2
-       exit 1
-       fi
-    }
-    # Fetch the response from the API
-    northmill_accounts=$(curl -s "$SWISH_REPORT_PA_ENDPOINT")
-    if [ -z "northmill_accounts" ]; then
-     echo "Failed to fetch API response. Exiting." >&2
-     exit 1
-    fi
-    # Process each Northmill account
-    echo "$northmill_accounts" | while read -r account; do
-    processingAccountName=$(echo "$account" | jq -r '.processingAccountName')
-    partnerBankIban=$(echo "$account" | jq -r '.partnerBankIban')
-    maskedPartnerBankIban="${partnerBankIban:0:4}********************${partnerBankIban: -6}"
-    echo "Processing account: $processingAccountName with IBAN: $maskedPartnerBankIban"
-    # Ensure a folder exists in the Swish Reports bucket
-    if ! aws s3 ls "$S3_REPORTS_BUCKET/$processingAccountName/" > /dev/null 2>&1; then
-      echo "Creating folder $S3_REPORTS_BUCKET/$processingAccountName/"
-      run_aws_command "aws s3api put-object --bucket ${S3_REPORTS_BUCKET#s3://} --key $processingAccountName/"
-    fi
-    # Check for the folder in the Bank Integration bucket
-    source_folder_path="$S3_BANK_INTEGRATION_BUCKET/$partnerBankIban"
-    if aws s3 ls "$source_folder_path/" > /dev/null 2>&1; then
-     # Sync files from source to destination, skipping existing files
-     echo "Syncing files from $source_folder_path to $S3_REPORTS_BUCKET/$processingAccountName/"
-     run_aws_command "aws s3 sync $source_folder_path/ $S3_REPORTS_BUCKET/$processingAccountName/ --exact-timestamps --no-progress"
-     # Move files from source to archive folder
-     echo "Archiving files from $source_folder_path to $S3_ARCHIVE_BUCKET/$masedPartnerBankIban/"
-     run_aws_command "aws s3 mv $source_folder_path/ $S3_ARCHIVE_BUCKET/$partnerBankIban/ --recursive --no-progress"
-    else
-     echo "Source folder $source_folder_path does not exist. Skipping."
-    fi
-    done
+    echo "hello"
