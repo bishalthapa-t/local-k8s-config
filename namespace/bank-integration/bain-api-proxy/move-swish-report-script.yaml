@@ -5,7 +5,6 @@ metadata:
   namespace: bank-integration
 data:
   process_s3_report.sh: |
+    #!/bin/bash
     set -e
-    run_aws_command() {
-     #!/bin/bash
     echo "hello"
