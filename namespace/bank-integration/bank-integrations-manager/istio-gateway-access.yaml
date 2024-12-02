@@ -30,7 +30,7 @@ spec:
         - destination:
             port:
               number: 80
-            host: bank-integrations-manager.bank-integration
+            host: bank-integrations-manager.bank-integration.svc.cluster.local
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
