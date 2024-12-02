@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: bain-api
   labels:
+    app: bank-integrations-manager
     app.kubernetes.io/name: bank-integrations-manager
 spec:
   ports:
