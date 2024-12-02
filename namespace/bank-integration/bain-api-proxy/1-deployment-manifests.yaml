@@ -28,7 +28,7 @@ spec:
         allowPrivilegeEscalation: false
         runAsUser: 0
       terminationGracePeriodSeconds: 120
-      serviceAccount: bain-preview-service-account
+      serviceAccount: bain-proxy
       containers:
         - name: bain-api-proxy
           imagePullPolicy: IfNotPresent
