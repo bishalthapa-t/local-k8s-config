@@ -62,10 +62,9 @@ spec:
             "@type": "type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua"
             defaultSourceCode:
               inlineString: |
-                request_handle:logInfo(" destination does not match configured host ")
                 function envoy_on_request(request_handle)
                   request_handle:logInfo(" destination does not match configured host ") 
-                 request_handle:headers():add("X-Dev-Channel", "Bishal-Thapa")
+                  request_handle:headers():add("X-Dev-Channel", "Bishal-Thapa")
                   original_cert = request_handle.headers:get("original-x-forwarded-client-cert")
                   request_handle.headers:add("x-forwarded-client-cert", original_cert),
                 end
