@@ -29,7 +29,3 @@ spec:
             port:
               number: 80
             host: bank-integrations-manager
-      headers:
-        request:
-          add:
-            x-forwarded-client-cert: "request.headers['original-client-cert']"
