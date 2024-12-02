@@ -45,8 +45,6 @@ spec:
         context: SIDECAR_INBOUND
         listener:
           portNumber: 80
-        proxy:
-          proxyVersion: '^1\.'
         filterChain:
           filter:
             name: envoy.filters.network.http_connection_manager
