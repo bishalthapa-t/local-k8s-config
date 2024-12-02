@@ -29,15 +29,7 @@ spec:
             port:
               number: 80
             host: bank-integrations-manager
-      filters:
-        - name: envoy.filters.http.lua
-          config:
-            inlineCode: |
-              function envoy_on_request(request_handle)
-                -- Extract the value from the original-client-cert header
-                local original_cert = request_handle:headers():get("original-client-cert")
-                if original_cert then
-                  -- Set the value of X-Forwarded-Client-Cert header
-                  request_handle:headers():replace("X-Forwarded-Client-Cert", original_cert)
-                end
-              end
+      headers:
+        request:
+          add:
+            X-Forwarded-Client-Cert: "{request.headers['original-client-cert']}"
