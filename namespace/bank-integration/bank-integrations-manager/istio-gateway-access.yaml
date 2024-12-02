@@ -1,3 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bain-api
+  labels:
+    app: bain-api
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: bank-integrations-manager
+    app: bank-integrations-manager
+
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -25,7 +42,7 @@ metadata:
 spec:
   workloadSelector:
     labels:
-      app: bank-integrations-manager  # Target the specific workload
+      app: bain-api # Target the specific workload
   configPatches:
     # The first patch adds the lua filter to the listener/http connection manager
     - applyTo: HTTP_FILTER
