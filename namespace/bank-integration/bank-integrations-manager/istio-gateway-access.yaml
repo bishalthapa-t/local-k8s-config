@@ -29,7 +29,37 @@ spec:
             port:
               number: 80
             host: bank-integrations-manager
-      headers:
-        request:
-          set:
-            x-forwarded-client-cert: "{request.headers['original-x-forwarded-client-cert']}"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: override-xfcc
+  namespace: bank-integration
+spec:
+  workloadSelector:
+    labels:
+      app: bank-integrations-manager  # Target the specific workload
+  configPatches:
+    - applyTo: HTTP_FILTER
+      match:
+        context: SIDECAR_INBOUND
+        listener:
+          portNumber: 80
+        proxy:
+          proxyVersion: '^1\.'
+        filterChain:
+          filter:
+            name: envoy.filters.network.http_connection_manager
+      patch:
+        operation: MERGE
+        value:
+          http_filters:
+            - name: envoy.filters.http.router
+              typed_config:
+                "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+                dynamic_metadata:
+                  request_headers_to_add:
+                    - header:
+                        key: x-forwarded-client-cert
+                        value: "%REQ(original-x-forwarded-client-cert)%"
+                      append: false
