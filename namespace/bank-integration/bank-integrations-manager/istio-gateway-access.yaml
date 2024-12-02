@@ -32,4 +32,4 @@ spec:
       headers:
         request:
           add:
-            x-forwarded-client-cert: request.headers['original-client-cert']}
+            x-forwarded-client-cert: request.headers['original-client-cert']
