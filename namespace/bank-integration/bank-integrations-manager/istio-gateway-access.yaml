@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bain-api
+  name: bank-integrations
   namespace: bank-integration
   labels:
     app.kubernetes.io/name: bank-integrations-manager
@@ -30,16 +30,7 @@ spec:
         - destination:
             port:
               number: 80
-            host: bank-integrations-manager.bank-integration.svc.cluster.local
-    - name: bis-routes
-      match:
-        - uri:
-            prefix: "/selector"
-      route:
-        - destination:
-            host: bain-integration-selector.bank-integration.svc.cluster.local
-            port:
-              number: 80
+            host: bank-integrations-manager.bank-integration
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
