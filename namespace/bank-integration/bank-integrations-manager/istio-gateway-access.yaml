@@ -41,7 +41,7 @@ spec:
             port:
               number: 80
 ---
-apiVersion: networking.istio.io/v1
+apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
   name: bain-api-service-entry
