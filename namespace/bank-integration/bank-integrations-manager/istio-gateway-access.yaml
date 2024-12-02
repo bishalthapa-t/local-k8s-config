@@ -9,8 +9,12 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: 443
+      targetPort: 8080
       protocol: TCP
+  selector:
+    app.kubernetes.io/name: bank-integrations-manager
+    app: bank-integrations-manager
+      
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -46,7 +50,7 @@ spec:
       match:
         context: SIDECAR_INBOUND
         listener:
-          portNumber: 80
+          portNumber: 8080
           filterChain:
             filter:
               name: "envoy.filters.network.http_connection_manager"
