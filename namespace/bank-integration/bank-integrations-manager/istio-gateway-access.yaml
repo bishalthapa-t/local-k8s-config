@@ -50,7 +50,7 @@ spec:
     - bain-api.bank-integration
   location: MESH_INTERNAL
   ports:
-    - number: 8080
+    - number: 80
       name: http
-      protocol: TLS
+      protocol: HTTP
   resolution: DNS
