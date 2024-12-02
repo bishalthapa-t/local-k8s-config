@@ -11,11 +11,15 @@ spec:
       port: 80
       targetPort: 443
       protocol: TCP
+  selector:
+    app.kubernetes.io/name: bank-integrations-manager
+    app: bank-integrations-manager
+
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: bain-api
+  name: bain-api-virtual-service
   namespace: bank-integration
 spec:
   hosts:
