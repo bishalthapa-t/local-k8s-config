@@ -46,7 +46,7 @@ spec:
       match:
         context: SIDECAR_INBOUND
         listener:
-          portNumber: 8080
+          portNumber: 80
           filterChain:
             filter:
               name: "envoy.filters.network.http_connection_manager"
@@ -65,4 +65,3 @@ spec:
                   original_cert = request_handle.headers:get("original-x-forwarded-client-cert")
                   request_handle.headers:add("x-forwarded-client-cert", original_cert),
                 end
-    # The second patch add
