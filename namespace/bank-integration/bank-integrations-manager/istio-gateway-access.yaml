@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: bain-api
   labels:
-    app: bain-api
+    app.kubernetes.io/name: bank-integrations-manager
 spec:
   ports:
     - name: http
@@ -42,7 +42,7 @@ metadata:
 spec:
   workloadSelector:
     labels:
-      app: bain-api # Target the specific workload
+      app: bank-integrations-manager  # Target the specific workload
   configPatches:
     # The first patch adds the lua filter to the listener/http connection manager
     - applyTo: HTTP_FILTER
