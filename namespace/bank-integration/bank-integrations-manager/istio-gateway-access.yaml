@@ -40,24 +40,30 @@ spec:
     labels:
       app: bank-integrations-manager  # Target the specific workload
   configPatches:
+    # The first patch adds the lua filter to the listener/http connection manager
     - applyTo: HTTP_FILTER
       match:
         context: SIDECAR_INBOUND
         listener:
-          portNumber: 80
-        filterChain:
-          filter:
-            name: envoy.filters.network.http_connection_manager
+          portNumber: 8080
+          filterChain:
+            filter:
+              name: "envoy.filters.network.http_connection_manager"
+              subFilter:
+                name: "envoy.filters.http.router"
       patch:
-        operation: MERGE
-        value:
-          http_filters:
-            - name: envoy.filters.http.router
-              typed_config:
-                "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
-                dynamic_metadata:
-                  request_headers_to_add:
-                    - header:
-                        key: x-forwarded-client-cert
-                        value: "%REQ(original-x-forwarded-client-cert)%"
-                      append: false
+        operation: INSERT_BEFORE
+        value: # lua filter specification
+          name: envoy.filters.http.lua
+          typed_config:
+            "@type": "type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua"
+            defaultSourceCode:
+              inlineString: |
+                function envoy_on_request(request_handle)
+                  local headers = request_handle:headers()
+                  request_handle:streamInfo():dynamicMetadata():set("envoy.filters.http.lua", "request.info", {
+                     original_cert = headers:get("original-x-forwarded-client-cert"),
+                     headers:add("x-forwarded-client-cert", original_cert),
+                  })
+                end
+    # The second patch add
