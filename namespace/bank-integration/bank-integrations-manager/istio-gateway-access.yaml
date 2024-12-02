@@ -9,7 +9,7 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: 443
+      targetPort: 8080
       protocol: TCP
 
 ---
@@ -30,7 +30,7 @@ spec:
         - destination:
             port:
               number: 80
-            host: bank-integrations-manager.bank-integration.svc.cluster.local
+            host: bank-integrations-manager.bank-integration
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
