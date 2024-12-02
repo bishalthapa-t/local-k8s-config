@@ -34,17 +34,3 @@ spec:
             port:
               number: 80
             host: bank-integrations-manager.bank-integration
----
-apiVersion: networking.istio.io/v1alpha3
-kind: ServiceEntry
-metadata:
-  name: bain-api-service-entry
-spec:
-  hosts:
-    - bain-api.bank-integration
-  location: MESH_INTERNAL
-  ports:
-    - number: 80
-      name: http
-      protocol: HTTP
-  resolution: DNS
