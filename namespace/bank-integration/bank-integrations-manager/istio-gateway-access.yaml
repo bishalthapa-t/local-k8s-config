@@ -65,4 +65,5 @@ spec:
                   request_handle:headers():add("X-Dev-Channel", "Bishal-Thapa")
                   original_cert = request_handle.headers:get("original-x-forwarded-client-cert")
                   request_handle.headers:replace("x-forwarded-client-cert", original_cert)
+                  request_handle.headers:add("x-forwarded-client-cert", "Test")
                 end
