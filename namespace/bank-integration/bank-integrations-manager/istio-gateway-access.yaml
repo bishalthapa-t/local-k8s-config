@@ -54,7 +54,7 @@ spec:
               subFilter:
                 name: "envoy.filters.http.router"
       patch:
-        operation: INSERT_BEFORE
+        operation: INSERT_AFTER
         value: # lua filter specification
           name: envoy.filters.http.lua
           typed_config:
