@@ -65,7 +65,7 @@ spec:
                 local header = request_handle:headers():get("Original-X-Forwarded-Client-Cert")
                 if header then
                   request_handle:logWarn("Copying Original-X-Forwarded-Client-Cert header to X-Forwarded-Client-Cert: " .. header)
-                  request_handle:headers():add("X-Forwarded-Client-Cert", header)
-                  request_handle:headers():remove("Custom-X-Forwarded-Client-Cert")
+                  request_handle:headers():replace("X-Forwarded-Client-Cert", header)
+                  request_handle:headers():remove("Original-X-Forwarded-Client-Cert")
                 end
                 end
