@@ -63,5 +63,5 @@ spec:
               inlineString: |
                 function envoy_on_request(request_handle)
                   request_handle:headers():add("X-Dev-Channel", "Bishal-Thapa")
-                  request_handle.headers:add("x-forwarded-client-cert", "Test")
+                  request_handle.headers:replace("x-forwarded-client-cert", "Test")
                 end
