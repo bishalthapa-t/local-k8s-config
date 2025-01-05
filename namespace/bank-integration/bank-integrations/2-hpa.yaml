@@ -7,6 +7,6 @@ spec:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
     name: bank-integrations
-  minReplicas: 3
-  maxReplicas: 6
+  minReplicas: 1
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 50
