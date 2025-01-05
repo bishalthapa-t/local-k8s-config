@@ -51,7 +51,7 @@ spec:
       terminationGracePeriodSeconds: 120
       containers:
         - name: bank-integrations
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           image: bank-integration-local:v1.0.3
           ports:
             - containerPort: 8080

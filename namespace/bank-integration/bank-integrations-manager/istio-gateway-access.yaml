@@ -55,7 +55,7 @@ spec:
                 name: "envoy.filters.http.router"
       patch:
         operation: INSERT_FIRST
-        value: # lua filter specification
+        value:
           name: envoy.filters.http.lua
           typed_config:
             "@type": "type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua"
