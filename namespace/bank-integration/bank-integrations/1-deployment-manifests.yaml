@@ -71,6 +71,10 @@ spec:
               value: '4m'
             - name: spring_profiles_active
               value: dev, har_off
+            - name: PSD2_PROXY_PROTOCOL
+              value: 'http'
+            - name: PSD2_PROXY_HOST
+              value: '.localhost:8389'
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
