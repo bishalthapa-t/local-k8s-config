@@ -52,7 +52,7 @@ spec:
       containers:
         - name: bank-integrations
           imagePullPolicy: IfNotPresent
-          image: bank-integration-local:v1.0.4
+          image: bank-integration-local:v1.0.5
           ports:
             - containerPort: 8080
               name: http
@@ -69,7 +69,7 @@ spec:
               value: '300000'
             - name: spring_lifecycle_timeout-per-shutdown-phase
               value: '4m'
-            - name: spring_profiles_include
+            - name: spring_profiles_active
               value: dev, har_off
           livenessProbe:
             httpGet:
