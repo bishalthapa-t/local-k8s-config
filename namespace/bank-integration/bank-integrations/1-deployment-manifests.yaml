@@ -52,7 +52,7 @@ spec:
       containers:
         - name: bank-integrations
           imagePullPolicy: Always
-          image: bank-integration-local:v1.0.3
+          image: bank-integration-local:v1.0.4
           ports:
             - containerPort: 8080
               name: http
