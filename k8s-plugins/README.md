@@ -52,3 +52,8 @@ istioctl install
 ```kubectl get namespace -L istio-injection```
 
 > To enabled istio for certain namespace ```kubectl label namespace bank-integration istio-injection=enabled --overwrite```
+
+### Create namespace bank-integration
+```
+kubectl create namespace bank-integration
+```
