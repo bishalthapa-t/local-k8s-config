@@ -75,6 +75,8 @@ spec:
               value: 'http'
             - name: PSD2_PROXY_HOST
               value: '.localhost:8389'
+            - name: PSD2_PROXY_ACTIVE
+              value: "true"
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
