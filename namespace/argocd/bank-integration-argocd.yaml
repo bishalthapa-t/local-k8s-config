@@ -1,0 +1,13 @@
+piVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bank-integrations
+spec:
+  destination:
+    namespace: bank-integration
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: namespace/bank-integration/bank-integrations 
+    repoURL: git@github.com:bishalthapa-t/local-k8s-config.git 
+    targetRevision: HEAD
